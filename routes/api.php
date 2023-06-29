@@ -7,6 +7,7 @@ use App\Http\Controllers\Api\Auth\RegisterController;
 use App\Http\Controllers\Api\Location\LocationController;
 use App\Http\Controllers\Api\Locations\AllController;
 use App\Http\Controllers\Api\PingController;
+use App\Http\Controllers\Api\Trips\DeleteController;
 use App\Http\Controllers\Api\Trips\IndexController;
 use App\Http\Controllers\Api\Trips\StoreController;
 use Illuminate\Support\Facades\Route;
@@ -41,4 +42,5 @@ Route::middleware('auth:sanctum')
     ->name('api.trips.')->group(function (): void {
         Route::post('/', StoreController::class)->name('store');
         Route::get('/', IndexController::class)->name('index');
+        Route::delete('/{trip}', DeleteController::class)->name('delete');
     });
